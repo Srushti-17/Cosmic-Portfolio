@@ -149,7 +149,7 @@ export default function AstronautGuide({
         {/* Astronaut image */}
         <div className="w-32 h-32 relative">
           <Image
-            src="/placeholder.svg?height=128&width=128"
+            src="/girl.png?height=128&width=128"
             alt="Astronaut Guide"
             width={128}
             height={128}
