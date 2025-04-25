@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import SpaceScene from "@/components/space-scene"
 import AstronautGuide from "@/components/astronaut-guide"
 
+
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [showGuide, setShowGuide] = useState(false)
@@ -52,9 +53,6 @@ export default function HeroSection() {
         } as React.CSSProperties
       }
     >
-      <div className="absolute inset-0 z-0">
-        <SpaceScene />
-      </div>
 
       <div className="container mx-auto z-10 relative">
         <div className="max-w-3xl mx-auto text-center">
@@ -73,10 +71,15 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-mono"
+            className="text-2xl md:text-6xl lg:text-7xl font-bold mb-6 font-mono"
           >
-            <span className="block">EXPLORE THE</span>
-            <span className="text-cyan-400">COSMIC PORTFOLIO</span>
+            <div className="flex flex-row items-center justify-center">
+              <img src='/profile.jpg' alt="profile" className="rounded-full size-[200px] border-2 border-indigo-700" />
+              <div className="flex flex-col">
+                <span className="block text-[60px]">Hi, I'm</span>
+                <p className="text-[60px] text-cyan-400">SRUSHTI PILLARE</p>
+              </div>
+            </div>
           </motion.h1>
 
           <motion.div

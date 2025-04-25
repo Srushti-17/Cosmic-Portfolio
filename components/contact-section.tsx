@@ -64,10 +64,10 @@ export default function ContactSection() {
   }
 
   const socialLinks = [
-    { icon: <Github className="h-5 w-5" />, label: "GITHUB", href: "#" },
-    { icon: <Linkedin className="h-5 w-5" />, label: "LINKEDIN", href: "#" },
-    { icon: <Twitter className="h-5 w-5" />, label: "TWITTER", href: "#" },
-    { icon: <Mail className="h-5 w-5" />, label: "EMAIL", href: "mailto:contact@example.com" },
+    { icon: <Github className="h-5 w-5" />, label: "GITHUB", href: "https://github.com/Srushti-17" },
+    { icon: <Linkedin className="h-5 w-5" />, label: "LINKEDIN", href: "https://www.linkedin.com/in/srushti-pillare-065032294/" },
+    { icon: <Twitter className="h-5 w-5" />, label: "TWITTER", href: "https://x.com/Srushti_Pillare?t=isg0ia-HYzR-DixC84MlOw&s=08" },
+    { icon: <Mail className="h-5 w-5" />, label: "EMAIL", href: "mailto:srushtipillare@gmail.com" },
   ]
 
   return (
@@ -204,10 +204,6 @@ export default function ContactSection() {
                   <div className="w-4 h-4 bg-cyan-400 mr-2"></div>
                   <h3 className="text-2xl font-bold text-white font-mono">COMMUNICATION CHANNELS</h3>
                 </div>
-
-                <p className="text-cyan-100 mb-8 font-mono">
-                  &gt; READY TO COLLABORATE ON YOUR NEXT COSMIC PROJECT? REACH OUT THROUGH ANY OF THESE CHANNELS.
-                </p>
 
                 <div className="space-y-6">
                   {socialLinks.map((link, index) => (

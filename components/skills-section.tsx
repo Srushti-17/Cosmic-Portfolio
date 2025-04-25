@@ -23,105 +23,6 @@ export default function SkillsSection() {
     }
   }, [isInView])
 
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
-    // Set canvas dimensions
-    const setCanvasDimensions = () => {
-      canvas.width = canvas.offsetWidth
-      canvas.height = canvas.offsetHeight
-    }
-
-    setCanvasDimensions()
-    window.addEventListener("resize", setCanvasDimensions)
-
-    // Create constellation points (skills)
-    const skills = [
-      { name: "React", x: Math.random() * canvas.width, y: Math.random() * canvas.height, level: 90 },
-      { name: "Next.js", x: Math.random() * canvas.width, y: Math.random() * canvas.height, level: 85 },
-      { name: "TypeScript", x: Math.random() * canvas.width, y: Math.random() * canvas.height, level: 80 },
-      { name: "Three.js", x: Math.random() * canvas.width, y: Math.random() * canvas.height, level: 75 },
-      { name: "Tailwind CSS", x: Math.random() * canvas.width, y: Math.random() * canvas.height, level: 95 },
-      { name: "Node.js", x: Math.random() * canvas.width, y: Math.random() * canvas.height, level: 85 },
-      { name: "MongoDB", x: Math.random() * canvas.width, y: Math.random() * canvas.height, level: 80 },
-      { name: "GraphQL", x: Math.random() * canvas.width, y: Math.random() * canvas.height, level: 70 },
-    ]
-
-    // Draw connections between skills that are close to each other
-    const drawConstellations = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      // Draw grid for retro game feel
-      ctx.strokeStyle = "rgba(50, 50, 150, 0.15)"
-      ctx.lineWidth = 1
-
-      // Horizontal grid lines
-      const gridSize = 30
-      for (let y = 0; y < canvas.height; y += gridSize) {
-        ctx.beginPath()
-        ctx.moveTo(0, y)
-        ctx.lineTo(canvas.width, y)
-        ctx.stroke()
-      }
-
-      // Vertical grid lines
-      for (let x = 0; x < canvas.width; x += gridSize) {
-        ctx.beginPath()
-        ctx.moveTo(x, 0)
-        ctx.lineTo(x, canvas.height)
-        ctx.stroke()
-      }
-
-      // Draw connections
-      ctx.strokeStyle = "rgba(79, 209, 197, 0.3)" // Cyan with low opacity
-      ctx.lineWidth = 2
-
-      for (let i = 0; i < skills.length; i++) {
-        for (let j = i + 1; j < skills.length; j++) {
-          const dx = skills[i].x - skills[j].x
-          const dy = skills[i].y - skills[j].y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-
-          if (distance < 200) {
-            ctx.beginPath()
-            ctx.moveTo(skills[i].x, skills[i].y)
-            ctx.lineTo(skills[j].x, skills[j].y)
-            ctx.stroke()
-          }
-        }
-      }
-
-      // Draw skill points
-      skills.forEach((skill) => {
-        // Glow effect
-        const gradient = ctx.createRadialGradient(skill.x, skill.y, 0, skill.x, skill.y, 20)
-        gradient.addColorStop(0, "rgba(79, 209, 197, 0.8)")
-        gradient.addColorStop(1, "rgba(79, 209, 197, 0)")
-
-        ctx.fillStyle = gradient
-        ctx.beginPath()
-        ctx.arc(skill.x, skill.y, 20, 0, Math.PI * 2)
-        ctx.fill()
-
-        // Skill point - pixelated for retro feel
-        ctx.fillStyle = "rgba(79, 209, 197, 0.9)"
-        ctx.fillRect(Math.floor(skill.x) - 2, Math.floor(skill.y) - 2, 4, 4)
-      })
-
-      requestAnimationFrame(drawConstellations)
-    }
-
-    drawConstellations()
-
-    return () => {
-      window.removeEventListener("resize", setCanvasDimensions)
-    }
-  }, [])
-
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -132,8 +33,8 @@ export default function SkillsSection() {
       title: "FRONTEND TECH",
       skills: [
         { name: "React", level: 90, xp: "9000 XP" },
-        { name: "Next.js", level: 85, xp: "8500 XP" },
-        { name: "TypeScript", level: 80, xp: "8000 XP" },
+        { name: "Next.js", level: 70, xp: "8500 XP" },
+        { name: "TypeScript", level: 60, xp: "6000 XP" },
         { name: "Tailwind CSS", level: 95, xp: "9500 XP" },
         { name: "Three.js", level: 75, xp: "7500 XP" },
       ],
@@ -144,18 +45,16 @@ export default function SkillsSection() {
         { name: "Node.js", level: 85, xp: "8500 XP" },
         { name: "Express", level: 80, xp: "8000 XP" },
         { name: "MongoDB", level: 80, xp: "8000 XP" },
-        { name: "GraphQL", level: 70, xp: "7000 XP" },
-        { name: "PostgreSQL", level: 75, xp: "7500 XP" },
+        { name: "REST APIs", level: 90, xp: "9000 XP" },
       ],
     },
     {
-      title: "TOOLS & PRACTICES",
+      title: "TOOLS & OTHER",
       skills: [
         { name: "Git & GitHub", level: 90, xp: "9000 XP" },
-        { name: "CI/CD", level: 80, xp: "8000 XP" },
-        { name: "Jest", level: 75, xp: "7500 XP" },
-        { name: "Figma", level: 85, xp: "8500 XP" },
-        { name: "Agile/Scrum", level: 80, xp: "8000 XP" },
+        { name: "VS Code", level: 80, xp: "8000 XP" },
+        { name: "Python", level: 75, xp: "7500 XP" },
+        { name: "Jupyter Notebook", level: 85, xp: "8500 XP" },
       ],
     },
   ]
@@ -178,16 +77,7 @@ export default function SkillsSection() {
           <p className="text-cyan-100 max-w-2xl mx-auto font-mono">
             &gt; NAVIGATE THROUGH THE CONSTELLATION OF SKILLS AND TECHNOLOGIES MASTERED DURING SPACE EXPLORATION
           </p>
-        </motion.div>
-
-        <div className="relative mb-16 h-[300px] rounded-xl overflow-hidden border-2 border-indigo-700">
-          <canvas ref={canvasRef} className="w-full h-full" />
-          <div className="absolute inset-0 bg-gradient-to-t from-indigo-950 to-transparent opacity-70" />
-          <div className="absolute bottom-0 left-0 w-full p-6 text-center">
-            <h3 className="text-xl font-bold text-white font-mono mb-2">INTERACTIVE SKILL MAP</h3>
-            <p className="text-cyan-300 font-mono text-sm">A COSMIC MAP OF INTERCONNECTED TECHNOLOGIES</p>
-          </div>
-        </div>
+        </motion.div> 
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (

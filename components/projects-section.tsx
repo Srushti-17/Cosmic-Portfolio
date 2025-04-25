@@ -29,48 +29,35 @@ export default function ProjectsSection() {
   const projects = [
     {
       id: 1,
-      title: "NEBULA CHAT",
-      description: "REAL-TIME MESSAGING APPLICATION WITH END-TO-END ENCRYPTION AND SPACE-THEMED UI.",
-      image: "/placeholder.svg?height=600&width=800",
-      tags: ["React", "Socket.io", "Node.js", "Tailwind"],
-      demoUrl: "#",
-      githubUrl: "#",
+      title: "Meds AI",
+      description: "AI-POWERED MEDICAL AGENT FOR EFFECTIVE DRUG ANALYSIS.",
+      image: "/medsai.png?height=600&width=800",
+      tags: ["React", "Next.js", "Node.js", "Tailwind"],
+      githubUrl: "https://github.com/Srushti-17/HackOn_CodeByte",
       level: "LEVEL 3",
       xp: "1200 XP",
     },
     {
       id: 2,
-      title: "ORBIT ANALYTICS",
-      description: "DASHBOARD FOR VISUALIZING COMPLEX DATA SETS WITH INTERACTIVE 3D CHARTS AND REAL-TIME UPDATES.",
-      image: "/placeholder.svg?height=600&width=800",
-      tags: ["Next.js", "D3.js", "Three.js", "TypeScript"],
-      demoUrl: "#",
-      githubUrl: "#",
+      title: "CodeLens",
+      description: "A CHROME EXTENSION BUILT USING CHROME AI APIS FOR EXPLAINING CODE SNIPPETS.",
+      image: "/codelens.png?height=600&width=800",
+      tags: ["Javascript", "CSS", "Chrome APIs"],
+      githubUrl: "https://github.com/Srushti-17/CodeLens",
       level: "LEVEL 4",
       xp: "1500 XP",
     },
     {
       id: 3,
-      title: "STELLAR E-COMMERCE",
-      description: "FULL-FEATURED ONLINE STORE WITH DYNAMIC PRODUCT EXPLORATION AND CELESTIAL NAVIGATION.",
-      image: "/placeholder.svg?height=600&width=800",
-      tags: ["React", "Redux", "Node.js", "MongoDB"],
-      demoUrl: "#",
-      githubUrl: "#",
+      title: "Docolab",
+      description: "AI-POWERED DOCUMENT COLLABORATION AND EDITOR TOOL.",
+      image: "/docolab.png?height=600&width=800",
+      tags: ["React", "Tailwind", "Node.js", "MongoDB"],
+      demoUrl: "https://docolab-tool.vercel.app/",
+      githubUrl: "https://github.com/Srushti-17/Docolab",
       level: "LEVEL 5",
       xp: "2000 XP",
-    },
-    {
-      id: 4,
-      title: "COSMIC WEATHER",
-      description: "WEATHER FORECASTING APP WITH BEAUTIFUL SPACE-THEMED VISUALIZATIONS AND ACCURATE PREDICTIONS.",
-      image: "/placeholder.svg?height=600&width=800",
-      tags: ["React", "OpenWeather API", "Chart.js", "Framer"],
-      demoUrl: "#",
-      githubUrl: "#",
-      level: "LEVEL 2",
-      xp: "800 XP",
-    },
+    }
   ]
 
   const fadeInUp = {
@@ -160,18 +147,26 @@ export default function ProjectsSection() {
                   <Button
                     variant="outline"
                     size="sm"
+                    onClick={() => open(project.githubUrl)}
                     className="border-2 border-indigo-700 text-cyan-400 hover:bg-indigo-900/50 font-mono"
                   >
                     <Github className="h-4 w-4 mr-2" />
                     VIEW CODE
                   </Button>
-                  <Button
-                    size="sm"
-                    className="bg-cyan-600 hover:bg-cyan-700 text-white border-2 border-cyan-400 font-mono"
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    LAUNCH
-                  </Button>
+                  
+                    {project.demoUrl ? (
+                      <>
+                        <Button
+                        size="sm"
+                        onClick={() => open(project.demoUrl)}
+                        className="bg-cyan-600 hover:bg-cyan-700 text-white border-2 border-cyan-400 font-mono"
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          LAUNCH
+                        </Button>
+                      </>
+                    ) : null}
+                  
                 </CardFooter>
               </Card>
             </motion.div>

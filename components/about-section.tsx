@@ -92,12 +92,16 @@ export default function AboutSection() {
                   </div>
                   <div className="pl-6 border-l-2 border-indigo-700">
                     <p className="text-cyan-100 mb-4 font-mono">
-                      &gt; 2+ YEARS NAVIGATING THE DIGITAL COSMOS, CHARTING COURSES THROUGH FRONTEND GALAXIES, BACKEND
-                      NEBULAE, AND THE FULL-STACK UNIVERSE.
+                      &gt; Mahatma Gandhi Centennial Sindhu High School - 2020 <br />
+                      91% HSC
+                    </p>
+                    <p className="text-cyan-100 mb-4 font-mono">
+                      &gt; Sindhi Hindi Junior College - 2022 <br />
+                      91% SSC
                     </p>
                     <p className="text-cyan-100 font-mono">
-                      &gt; EACH PROJECT IS A NEW STAR IN MY CONSTELLATION, ADDING TO A GROWING MAP OF ACHIEVEMENTS AND
-                      DISCOVERIES.
+                      &gt; JD College Of Engineering and Management - 2022 to 2026 <br />
+                      9.20 CGPA B.Tech in AI
                     </p>
                   </div>
                 </div>
