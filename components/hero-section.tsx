@@ -6,40 +6,11 @@ import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import SpaceScene from "@/components/space-scene"
 import AstronautGuide from "@/components/astronaut-guide"
 
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [showGuide, setShowGuide] = useState(false)
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return
-
-      const { clientX, clientY } = e
-      const { width, height, left, top } = containerRef.current.getBoundingClientRect()
-
-      const x = (clientX - left) / width - 0.5
-      const y = (clientY - top) / height - 0.5
-
-      containerRef.current.style.setProperty("--mouse-x", `${x * 20}px`)
-      containerRef.current.style.setProperty("--mouse-y", `${y * 20}px`)
-    }
-
-    document.addEventListener("mousemove", handleMouseMove)
-
-    // Show astronaut guide after a delay
-    const timer = setTimeout(() => {
-      setShowGuide(true)
-    }, 1000)
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove)
-      clearTimeout(timer)
-    }
-  }, [])
 
   return (
     <section
@@ -71,13 +42,13 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl md:text-6xl lg:text-7xl font-bold mb-6 font-mono"
+            className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-mono"
           >
             <div className="flex flex-row items-center justify-center">
-              <img src='/profile.jpg' alt="profile" className="rounded-full size-[200px] border-2 border-indigo-700" />
-              <div className="flex flex-col">
-                <span className="block text-[60px]">Hi, I'm</span>
-                <p className="text-[60px] text-cyan-400">SRUSHTI PILLARE</p>
+              <img src='/profile.jpg' alt="profile" className="rounded-full size-[150px] sm:size-[200px] border-2 border-indigo-700" />
+              <div className="flex flex-col ">
+                <span className="block ">Hi, I'm</span>
+                <p className=" text-cyan-400">SRUSHTI PILLARE</p>
               </div>
             </div>
           </motion.h1>
@@ -100,15 +71,26 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" className="bg-cyan-600 hover:bg-cyan-700 text-white border-2 border-cyan-400 font-mono">
+            <Button size="lg" 
+              className="bg-cyan-600 hover:bg-cyan-700 text-white border-2 border-cyan-400 font-mono"
+              onClick={() => {
+                const aboutSection = document.getElementById('about');
+                if (aboutSection) {
+                  aboutSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               START MISSION
             </Button>
             <Button
               variant="outline"
               size="lg"
               className="border-2 border-indigo-500 text-indigo-300 hover:bg-indigo-950/30 font-mono"
-            >
-              VIEW CONTROLS
+              onClick={() => {
+                const resumeUrl = "https://docs.google.com/document/d/1tXtaCQSXhbML5tr6RtIKc1J-R35_ALrkMIUbyD3DEBc/edit?usp=sharing";
+                window.open(resumeUrl, "_blank");}
+              }>
+              VIEW RESUME
             </Button>
           </motion.div>
         </div>
@@ -130,7 +112,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* Astronaut Guide */}
-      {showGuide && <AstronautGuide position="right" animation="wave" dialog="greeting" />}
+      {/*showGuide && <AstronautGuide position="right" animation="wave" dialog="greeting" />*/}
     </section>
   )
 }

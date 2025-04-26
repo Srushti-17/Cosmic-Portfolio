@@ -15,12 +15,10 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
 
-      // Calculate scroll progress
       const totalHeight = document.body.scrollHeight - window.innerHeight
       const scrollProgress = (window.scrollY / totalHeight) * 100
       setProgress(scrollProgress)
 
-      // Determine current section
       const sections = ["hero", "about", "projects", "skills", "contact"]
       for (const section of sections.reverse()) {
         const element = document.getElementById(section)
@@ -52,14 +50,14 @@ export default function Navbar() {
         isScrolled ? "bg-indigo-950/80 backdrop-blur-md py-2" : "bg-transparent py-4"
       }`}
     >
-      {/* Game-style progress bar at the very top */}
+      
       <div className="absolute top-0 left-0 w-full h-1">
         <Progress value={progress} className="h-1 bg-black/50" indicatorClassName="bg-cyan-400" />
       </div>
 
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          {/* Logo area */}
+          
           <a href="#" className="flex items-center gap-2 text-xl font-bold">
             <div className="flex items-center justify-center w-8 h-8 bg-indigo-900 border-2 border-cyan-400 rounded-lg">
               <Rocket className="h-4 w-4 text-cyan-400" />
@@ -67,7 +65,7 @@ export default function Navbar() {
             <span className="text-cyan-400 font-mono tracking-wider">COSMIC EXPLORER</span>
           </a>
 
-          {/* Game stats - only on desktop */}
+          
           <div className="hidden md:flex items-center gap-6 px-4 py-1 bg-indigo-900/50 border border-indigo-700 rounded-lg">
             <div className="flex items-center gap-1">
               <Heart className="h-4 w-4 text-red-400" />
@@ -83,7 +81,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-2">
             {navLinks.map((link) => (
               <a
@@ -100,7 +97,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Mobile Navigation Toggle */}
           <button
             className="md:hidden text-white p-1 bg-indigo-900 border-2 border-cyan-400 rounded-lg"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -110,7 +106,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
       {isMenuOpen && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
@@ -134,7 +129,6 @@ export default function Navbar() {
               </a>
             ))}
 
-            {/* Mobile game stats */}
             <div className="mt-4 flex justify-between items-center px-4 py-2 bg-indigo-900/50 border border-indigo-700 rounded-lg">
               <div className="flex items-center gap-1">
                 <Heart className="h-4 w-4 text-red-400" />

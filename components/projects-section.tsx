@@ -107,12 +107,10 @@ export default function ProjectsSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-indigo-950 to-transparent opacity-60" />
 
-                  {/* Game-style level indicator */}
                   <div className="absolute top-2 left-2 px-2 py-1 bg-indigo-900/80 border border-cyan-500 rounded text-xs font-mono text-cyan-300">
                     {project.level}
                   </div>
 
-                  {/* XP indicator */}
                   <div className="absolute top-2 right-2 px-2 py-1 bg-indigo-900/80 border border-cyan-500 rounded text-xs font-mono text-cyan-300">
                     {project.xp}
                   </div>
@@ -173,7 +171,6 @@ export default function ProjectsSection() {
           ))}
         </div>
 
-        {/* Project Modal/Expanded View could be added here */}
       </div>
 
       {/* Astronaut Guide */}

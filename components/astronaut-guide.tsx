@@ -27,7 +27,6 @@ export default function AstronautGuide({
   const [dialogText, setDialogText] = useState<string>("")
   const [isTyping, setIsTyping] = useState(false)
 
-  // Position styles
   const positionStyles = {
     left: "left-8 bottom-20",
     right: "right-8 bottom-20",
@@ -35,7 +34,6 @@ export default function AstronautGuide({
     bottom: "left-1/2 -translate-x-1/2 bottom-8",
   }
 
-  // Animation variants
   const astronautVariants = {
     idle: {
       y: [0, -10, 0],
@@ -84,8 +82,8 @@ export default function AstronautGuide({
       },
     },
   }
+  
 
-  // Dialog text based on type
   useEffect(() => {
     if (!dialog) {
       setShowDialog(false)
@@ -118,7 +116,6 @@ export default function AstronautGuide({
         break
     }
 
-    // Simulate typing effect
     let currentText = ""
     const textArray = text.split("")
     let i = 0
@@ -132,7 +129,6 @@ export default function AstronautGuide({
         clearInterval(typingInterval)
         setIsTyping(false)
 
-        // Auto-dismiss dialog after 5 seconds
         setTimeout(() => {
           setShowDialog(false)
           if (onDialogComplete) onDialogComplete()

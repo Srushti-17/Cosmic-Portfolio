@@ -45,7 +45,6 @@ export default function ContactSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
     setTimeout(() => {
       console.log("Form submitted:", formState)
       setIsSubmitting(false)
@@ -54,7 +53,7 @@ export default function ContactSection() {
         email: "",
         message: "",
       })
-      // Here you would typically send the data to your backend
+  
     }, 1500)
   }
 
