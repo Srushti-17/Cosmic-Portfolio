@@ -35,7 +35,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-6 text-center text-xs text-gray-500 font-mono">
-          <p>CREATED FOR PORTXFOLIO HACKATHON | PUSHING THE BOUNDARIES OF PORTFOLIO DEVELOPMENT</p>
+          <p>CREATIVITY UNLEASHED</p>
         </div>
       </div>
     </footer>
